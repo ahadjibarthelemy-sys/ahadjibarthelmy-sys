@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Compte à rebours spécial</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Bientôt ton jour spécial... ❤️</h1>
+        <div id="countdown">
+            <div class="time-box"><span id="days">00</span><p>Jours</p></div>
+            <div class="time-box"><span id="hours">00</span><p>Heures</p></div>
+            <div class="time-box"><span id="minutes">00</span><p>Minutes</p></div>
+            <div class="time-box"><span id="seconds">00</span><p>Secondes</p></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <div class="message-section">
+        <h3>Laisse-lui un mot doux anonyme...</h3>
+         <textarea id="user-message" placeholder="Écris quelque chose..."></textarea>
+         <button onclick="sendMessage()">Envoyer</button>
+    <p id="status-msg"></p>
+</div>
+</body>
+</html>

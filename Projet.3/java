@@ -1,0 +1,30 @@
+import org.springframework.web.bind.annotation.*;
+import java.util.ArrayList;
+import java.util.List;
+
+@RestController
+@RequestMapping("/api")
+@CrossOrigin(origins = "*") // Pour permettre les tests locaux
+public class BirthdayController {
+
+    private List<String> anonymousMessages = new ArrayList<>();
+
+    @GetMapping("/birthday-date")
+    public Map<String, String> getBirthdayDate() {
+        Map<String, String> response = new HashMap<>();
+        response.put("targetDate", "2026-12-25T00:00:00"); 
+        return response;
+    }
+
+    // Endpoint pour recevoir les messages
+    @PostMapping("/send-message")
+    public String receiveMessage(@RequestBody Map<String, String> payload) {
+        String message = payload.get("message");
+        if (message != null && !message.trim().isEmpty()) {
+            anonymousMessages.add(message);
+            System.out.println("Nouveau message anonyme reçu : " + message);
+            return "Message envoyé avec succès !";
+        }
+        return "Le message est vide.";
+    }
+}
